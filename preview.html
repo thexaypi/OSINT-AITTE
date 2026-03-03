@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT AITTE - Corporate Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== GENERAL RESET ===== */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+  body { background: linear-gradient(135deg, #0b0c10, #1f2833); color:#c5c6c7; overflow-x:hidden; scroll-behavior:smooth; }
+  a { text-decoration:none; color:inherit; }
+  button { cursor:pointer; border:none; outline:none; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed; width:100%; top:0; left:0; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center;
+    background: rgba(11,12,16,0.85); backdrop-filter: blur(6px); z-index:1000;
+  }
+  header h1 { color:#66fcf1; font-size:1.5rem; letter-spacing:2px; }
+  nav { display:flex; gap:1rem; }
+  nav a { color:#c5c6c7; padding:0.5rem 1rem; transition: all 0.3s; border-radius:50px; }
+  nav a:hover { background:#45a29e; color:#0b0c10; transform:scale(1.1); }
+
+  /* ===== HERO ===== */
+  .hero {
+    height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+    background: radial-gradient(circle at center, rgba(102,252,241,0.1), transparent 70%), linear-gradient(135deg, #0b0c10, #1f2833);
+    animation: bgFade 20s infinite alternate;
+  }
+  @keyframes bgFade { 0%{background-position:0% 0%} 100%{background-position:100% 100%} }
+  .hero h2 { font-size:2.5rem; margin-bottom:2rem; color:#66fcf1; }
+  .hero .buttons { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+  .hero .buttons button {
+    background:#45a29e; color:#0b0c10; padding:1rem 2rem; font-weight:700; border-radius:50px;
+    transition: all 0.3s; box-shadow:0 4px 15px rgba(0,0,0,0.4);
+  }
+  .hero .buttons button:hover { transform:scale(1.1) rotate(-2deg); box-shadow:0 6px 20px rgba(0,0,0,0.6); }
+
+  /* ===== SERVICES ===== */
+  section { padding:6rem 2rem; }
+  h2.section-title { font-size:2rem; text-align:center; margin-bottom:3rem; color:#66fcf1; letter-spacing:1px; }
+  .services-grid {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:2rem;
+  }
+  .service-card {
+    background: rgba(11,12,16,0.8); border-radius:20px; padding:2rem; text-align:center; transition: transform 0.3s, box-shadow 0.3s;
+    cursor:pointer; position:relative;
+  }
+  .service-card:hover { transform:translateY(-10px); box-shadow:0 10px 25px rgba(102,252,241,0.5); }
+  .service-card h3 { margin-bottom:1rem; color:#45a29e; }
+  .service-card p { font-size:0.9rem; line-height:1.4rem; color:#c5c6c7; }
+  .service-card a { display:inline-block; margin-top:1rem; color:#66fcf1; transition:0.3s; }
+  .service-card a:hover { color:#ffffff; }
+
+  /* ===== METHODOLOGY ===== */
+  .methodology { background:#1f2833; padding:6rem 2rem; }
+  .methodology .step { background:#0b0c10; padding:1.5rem; margin:1rem 0; border-radius:15px; position:relative; overflow:hidden; transition: all 0.4s; }
+  .methodology .step:hover { transform:translateX(10px); box-shadow:0 10px 25px rgba(102,252,241,0.5); }
+  .methodology .step h4 { color:#45a29e; margin-bottom:0.5rem; }
+  .methodology .step p { font-size:0.9rem; color:#c5c6c7; }
+
+  /* ===== FOOTER ===== */
+  footer { background:#0b0c10; padding:2rem; text-align:center; font-size:0.9rem; color:#c5c6c7; }
+  footer a { color:#66fcf1; }
+
+  /* ===== SMOOTH ANIMATIONS ===== */
+  [data-animate] { opacity:0; transform:translateY(20px); transition:all 0.8s ease-out; }
+  [data-animate].show { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>OSINT AITTE</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Corporate Intelligence. Legally Engineered.</h2>
+  <div class="buttons">
+    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
+    <button onclick="document.getElementById('methodology').scrollIntoView({behavior:'smooth'})">Methodology</button>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card" data-animate>
+      <h3>Corporate Due Diligence</h3>
+      <p>Ownership Intelligence with full Dutch Companies Act compliance.</p>
+      <a href="https://www.kvk.nl/english/" target="_blank">Learn More</a>
+    </div>
+    <div class="service-card" data-animate>
+      <h3>UBO & Control Mapping</h3>
+      <p>Ultimate Beneficial Owner tracking with EU transparency compliance.</p>
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015R0865" target="_blank">Learn More</a>
+    </div>
+    <div class="service-card" data-animate>
+      <h3>AML / Sanctions & PEP</h3>
+      <p>Enhanced screening intelligence under EU AML directives.</p>
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L0849" target="_blank">Learn More</a>
+    </div>
+    <div class="service-card" data-animate>
+      <h3>Litigation & Regulatory</h3>
+      <p>Regulatory exposure analysis across multiple jurisdictions.</p>
+    </div>
+    <div class="service-card" data-animate>
+      <h3>Brand Protection</h3>
+      <p>Intellectual Property exposure monitoring with EU and NL compliance.</p>
+    </div>
+  </div>
+</section>
+
+<section id="methodology" class="methodology">
+  <h2 class="section-title">Intelligence Methodology</h2>
+  <div class="step" data-animate>
+    <h4>1. Scope Definition & Legal Qualification</h4>
+    <p>Defining boundaries of investigation with proportional legal review.</p>
+  </div>
+  <div class="step" data-animate>
+    <h4>2. Source Mapping Architecture</h4>
+    <p>Mapping all open-source intelligence sources for maximum coverage.</p>
+  </div>
+  <div class="step" data-animate>
+    <h4>3. Multi-Source Corroboration Protocol</h4>
+    <p>Cross-verifying information from multiple sources to reduce risk.</p>
+  </div>
+  <div class="step" data-animate>
+    <h4>4. Risk Scoring & Analytical Matrix</h4>
+    <p>Structured risk analysis with scoring and weighted factors.</p>
+  </div>
+  <div class="step" data-animate>
+    <h4>5. Legal Proportionality Review</h4>
+    <p>Ensuring all intel gathering adheres to GDPR and Dutch law.</p>
+  </div>
+</section>
+
+<section id="contact" style="padding:6rem 2rem;">
+  <h2 class="section-title">Contact Us</h2>
+  <form style="max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;">
+    <input type="text" placeholder="Name" style="padding:1rem; border-radius:10px; border:none;">
+    <input type="email" placeholder="Email" style="padding:1rem; border-radius:10px; border:none;">
+    <textarea placeholder="Message" rows="5" style="padding:1rem; border-radius:10px; border:none;"></textarea>
+    <button style="padding:1rem; border-radius:50px; background:#45a29e; font-weight:bold; color:#0b0c10; transition:0.3s;" 
+            onmouseover="this.style.transform='scale(1.05)'" 
+            onmouseout="this.style.transform='scale(1)'">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2026 OSINT AITTE | <a href="https://wetten.overheid.nl/" target="_blank">Dutch Law</a> | <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679" target="_blank">GDPR</a>
+</footer>
+
+<script>
+  // ===== Animate on Scroll =====
+  const animateElements = document.querySelectorAll('[data-animate]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) { entry.target.classList.add('show'); }
+    });
+  }, { threshold: 0.2 });
+  animateElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
